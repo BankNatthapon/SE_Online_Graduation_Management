@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!-- ------------------- Content ------------------- -->
+<div style="margin-left:20%">
+    <div class="w3-container w3-teal">
+        <h1>Online Graduation Management</h1>
+    </div>
+    <div class="w3-container">
+        <h2>Excel Export</h2>
+        <form method="post" action="/DataIO/Export" enctype="multipart/form-data">
+            <label>Export Student Data : </label>
+            <button type="submit" class="btn btn-success">Export!</button>
+        </form>
+    </div>
+    <div class="w3-container">
+        <h2>Excel Import</h2>
+        <form method="post" action="/DataIO/Import" enctype="multipart/form-data">
+            <div>
+                <input name="file" type="file" required />
+                <button type="submit">Import</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- ----------------------------------------------- -->
+
+

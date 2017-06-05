@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OnlineGraduationManagement.Models.Student>
+@using OnlineGraduationManagement.Views.BarCode;
+
+@{
+    ViewBag.Title = "Barcode";
+}
+
+<script>
+    function PrintDiv() {
+        var divToPrint = document.getElementById('container'); // เลือก div id ที่เราต้องการพิมพ์
+        var html = '<html>' + //
+            '<head>' +
+            '<link href="css/print.css" rel="stylesheet" type="text/css">' +
+            '</head>' +
+            '<body onload="window.print(); window.close();">' + divToPrint.innerHTML + '</body>' +
+            '</html>';
+
+        var popupWin = window.open();
+        popupWin.document.open();
+        popupWin.document.write(html); //โหลด print.css ให้ทำงานก่อนสั่งพิมพ์
+        popupWin.document.close();
+    }
+</script>
+
+<div style="margin-left:20%">
+    <div class="w3-container w3-teal">
+        <h1>Online Graduation Management</h1>
+    </div>
+    <div class="w3-container">
+        @*@using OnlineGraduationManagement.Helpers
+            @Html.GenerateQrCode("http://www.mikesmithdev.com")*@
+        <div class="col-lg-12">
+        <h3 class="col-md-3">@ViewBag.name</h3>
+        <div class="col-md-offset-1 col-md-2">
+            <br>
+            <button type="button" class="btn btn-success" onClick="PrintDiv();">Print!</button>
+        </div>
+        </div>
+
+        <div id="container" class="">
+            @{
+                foreach (var item in Model)
+                {
+                    var a = IDAtomationBarCode.BarcodeImageGenerator(@item.Std_Id.ToString());
+                    <div class="col-md-3" style="text-align:center">
+                        <img src="@Url.Content(a)" alt="Alternate Text" width="250" height="70" />
+                        <label>@item.Std_fname.ToString() @item.Std_lname.ToString()</label>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+    
+</div>

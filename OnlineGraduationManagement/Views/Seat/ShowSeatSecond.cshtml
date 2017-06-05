@@ -1,0 +1,112 @@
+﻿@model IEnumerable<OnlineGraduationManagement.Models.Student>
+
+@{
+    ViewBag.Title = "ShowSeatSecond";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<style type="text/css">
+    body {
+    }
+
+    table tr th {
+        text-align: center;
+        color: blue;
+    }
+
+    table tr td {
+        text-align: center;
+    }
+
+    #second {
+        margin-top: 60px;
+    }
+
+    #panel {
+        text-align: center;
+        margin-top: 0px;
+    }
+</style>
+
+<div style="margin-left:20%">
+<div class="w3-container w3-teal">
+    <h1>Online Graduation Management</h1>
+</div>
+    <div class="w3-container">
+        <center><div class="alert alert-warning" id="second"> <h3>ที่นั่งวันซ้อมรับปริญญา วันที่ <strong>6</strong> พฤศจิกายน 2560</h3> </div></center>
+
+        <div class="panel panel-primary" id="panel">
+
+            <div class="panel-heading">
+                เวทีรับปริญญา
+
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+
+            </div>
+
+            <div class="panel-body">
+
+                @if (Session["Student_Check"] == "OK")
+            {
+                    <div class="alert alert-success">
+                        ชื่อ - นามสกุล : @Session["Std_fname"] @Session["Std_lname"]
+                        GPA : @Session["Std_grade"]
+                        คณะ : @Session["Std_fac"] สาขา : @Session["Std_dep"]
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-success">
+                        คลิกที่นั่งเพื่อเช็คว่าเป็นนักศึกษาคนใด
+                    </div>
+                }
+
+                @{ var i = 1; }
+                @foreach (var item in Model)
+            {
+                if (item.seat_status == "UnCheck")
+                {
+                        <a href="@Url.Action("ShowDataSecond", "Seat", new { id = item.seat_std_id })"><button class="btn btn-success">@item.seat_name <span class="fa fa-times" aria-hidden="true"></span></button></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("ShowDataSecond", "Seat", new { id = item.seat_std_id })"><button class="btn btn-success">@item.seat_name <span class="fa fa-check" aria-hidden="true"></span></button></a>
+                    }
+
+
+                    if (i % ViewBag.col == 0)
+                    {
+                        <br /><br />
+                    }
+
+                    i++;
+                }
+
+            </div>
+
+            <div class="panel-footer">
+                ทางเข้า
+            </div>
+
+        </div>
+    </div>
+    @using (Html.BeginForm("CheckSecondSeat", "Seat", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+    {
+        <center>
+            <div class="form-group" style="width:auto">
+                <label class="control-label col-sm-2" for="usr">Barcode:</label>
+                <div class="col-sm-10" style="width:350px">
+                    @Html.TextBox("IdForCheckSeat", null, null, new { @class = "form-control", @placeholder = "Enter User" })
+                </div>
+            </div>
+            <div class="form-group" style="width:auto">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </center>
+    }
+</div>
+
+<center><a href="@Url.Action("DeleteSession", "Seat")"><button class="btn btn-info">กลับสู่หน้าหลัก <span class="fa fa-backward" aria-hidden="true"></span></button></a></center>

@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    body {
+        background-image: url('/Content/images/test4.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-color: #93c3f7;
+        margin-top: 0px;
+        background-attachment: fixed;
+        color: #333333;
+    }
+</style>
+
+<div style="margin-top:50px;margin-left:20%;margin-right:20%">
+
+    <div class="w3-container">
+        <div style="text-align:center"><img src="~/Content/images/logo (1).png" width="200" height="200" style="text-align:center" /></div>
+        <h2>ยินดีต้อนรับ</h2>
+        <p>ระบบจัดการการซ้อมรับปริญญาออนไลน์ ช่วยให้สามารถเช็คสถานะต่างๆและตรวจสอบได้ว่าใครบ้างที่เข้าซ้อมรับและใครบ้างที่ไม่เข้าซ้อมรับปริญญา</p>
+
+        <div class="w3-bar w3-light-grey">
+            <button class="w3-bar-item w3-button tablink w3-teal" onclick="openCity(event,'London')">กฏระเบียบวันซ้อม</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">กำหนดการ</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Tokyo')">สถานที่</button>
+        </div>
+
+        <div id="London" class="w3-container w3-border city">
+            <h2>กฏระเบียบวันซ้อม</h2>
+            <p>
+                <pre>
+    การแต่งกายของบัณฑิตชาย
+      1.เสื้อเชิ้ต-กางเกงขายาว สีสุภาพ
+      2.ผมสั้น ทรงสุภาพ
+      3.รองเท้าหนังหุ้มส้นสีดำ แบบเรียบ ไม่ติดโลหะ
+      4.ถุงเท้าสีดำ ไม่มีลวดลาย
+    ข้อบังคับ
+      ห้าม ใส่เสื้อยืด
+      ห้าม ใส่กางเกงยีนส์
+      ห้าม ไว้ผมยาวและไว้หนวดเครา
+      ห้าม ไว้เล็บยาว
+      ห้าม สวมรองเท้าผ้าใบ และรองเท้าแตะทุกชนิด
+    การแต่งกายของบัณฑิตหญิง
+      1. เสื้อ-กระโปรง ทรงสุภาพ
+      2. ผม ทรงสุภาพ
+      3. รองเท้าหนังหุ้มส้นสีดำ(ควรใส่คู่ที่บัณฑิตจะใช้ในวันพิธี เพื่อเป็นการฝึกซ้อมให้เกิดความเคยชิน)
+      4. สวมถุงน่องสีเนื้อ
+    ข้อบังคับ
+      ห้าม  ใส่กางเกง และกางเกงกระโปรง
+      ห้าม  ใส่เสื้อยืด
+      ห้าม  สวมรองเท้าผ้าใบ และรองเท้าแตะทุกชนิด
+    สิ่งที่บัณฑิตต้องนำมาทั้งวันฝึกซ้อมและวันพระราชทานปริญญาบัตร
+      1. บัตรประจำตัวประชาชน/บัตรประจำตัวข้าราชการ/รัฐวิสาหกิจ/ใบขับขี่  (ยกเว้นบัตรประจำตัวผู้เสียภาษี)
+      2. เสื้อครุย
+    หมายเหตุ   - บัณฑิตที่ใช้ยศนำหน้าชื่อ  ต้องแต่งเครื่องแบบให้ถูกต้องตามยศที่ได้รับ
+                - บัณฑิตต้องแต่งตัวให้ถูกต้องตามระเบียบข้อบังคับ อย่างเคร่งครัด                
+              มิฉะนั้น  จะไม่ได้รับการอนุญาตให้เข้ารับการฝึกซ้อมรับพระราชทานปริญญาบัตร
+    </pre>
+            </p>
+        </div>
+
+        <div id="Paris" class="w3-container w3-border city" style="display:none">
+            <h2>กำหนดการ</h2>
+            <p>
+                <pre>
+      วันที่ 16 มิถุนายน 2560 ซ้อมรับปริญญาครั้งที่ 1
+      วันที่ 17 มิถุนายน 2560 ซ้อมรับปริญญาครั้งที่ 2
+      วันที่ 18 มิถุนายน 2560 รับจริง
+    </pre>
+            </p>
+        </div>
+
+        <div id="Tokyo" class="w3-container w3-border city" style="display:none">
+            <h2>สถานที่</h2>
+            <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+        </div>
+    </div>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-teal", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-teal";
+}
+</script>

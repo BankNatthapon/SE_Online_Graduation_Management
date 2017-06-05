@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- ------------------- Content ------------------- -->
+<div style="margin-left:20%">
+    <div class="w3-container w3-teal">
+        <h1>Online Graduation Management</h1>
+    </div>
+    <div class="w3-container">
+        <h2>จัดการรายชื่อ</h2>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="ex3">Name</label>
+                <input class="form-control" id="ex3" type="text">
+            </div>
+            <div class="form-group">
+                <label for="sel1">Faculty</label>
+                <select class="form-control" id="sel1">
+                    <option>คณะวิศวกรรมศาสตร์</option>
+                    <option>คณะครุศาสตร์อุตสาหกรรม</option>
+                    <option>วิทยาลัยเทคโนโลยีอุตสาหกรรม</option>
+                    <option>คณะเทคโนโลยีสารสนเทศ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sel1">Department</label>
+                <select class="form-control" id="sel1">
+                    <option>อิเล็กทรอนิกส์</option>
+                    <option>คอมพิวเตอร์</option>
+                    <option>เครื่องกล</option>
+                    <option>โทรคมนาคม</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-success btn-sm">Enter</button>
+            </div>
+        </form>
+        <br>
+        <table class="w3-table-all w3-hoverable">
+            <thead>
+                <tr class="w3-light-grey">
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>email</th>
+                    <th>Faculty</th>
+                    <th>Honor</th>
+                    <th>Seat</th>
+                    <th>Editor</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>5703051623088</td>
+                <td>นาย ธนาวัฒน์ ปิ่นหย่า</td>
+                <td>s5703051623088@email.kmutnb.ac.th</td>
+                <td>Electronic</td>
+                <td>Computer</td>
+                <td>A1</td>
+                <td><button type="button" class="btn btn-primary">Edit</button>  <button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- ----------------------------------------------- -->
+

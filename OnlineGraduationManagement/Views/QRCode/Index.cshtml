@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineGraduationManagement.Models.Student>
+@using OnlineGraduationManagement.Views.BarCode;
+@{
+    ViewBag.Title = "Index";
+}
+@*@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}*@
+
+<!-- ------------------- Content ------------------- -->
+<div style="margin-left:20%">
+    <div class="w3-container w3-teal">
+        <h1>Online Graduation Management</h1>
+    </div>
+    <div class="col-md-offset-1">
+        <h3> Print Barcode</h3>
+    </div>
+    <div class="w3-container">
+        <table class="w3-table-all w3-hoverable">
+            <thead>
+                <tr>
+                    <th>Faculty Name</th>
+                    <th>Printing Tools</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.fac_name</td>
+                    <td>
+                        <button type="button" class="btn btn-warning">
+                            @Html.ActionLink("Print Barcode", "Barcode", new { id = item.fac_id })
+                        </button>
+                        <button type="button" class="btn btn-info">
+                            @Html.ActionLink("Print QRCode", "QRcode", new { id = item.fac_id })
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- ----------------------------------------------- -->

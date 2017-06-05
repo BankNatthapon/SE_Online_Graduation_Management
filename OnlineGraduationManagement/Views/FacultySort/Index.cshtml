@@ -1,0 +1,91 @@
+﻿
+@model IEnumerable<OnlineGraduationManagement.Models.Faculty>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- ------------------- Content ------------------- -->
+<div style="margin-left:20%">
+    <div class="w3-container w3-teal">
+        <h1>Online Graduation Management</h1>
+    </div>
+    <br>
+    @*<form class="form-horizontal" method="post" action="/FacultySort/Sort">
+        @foreach (var item in Model) {
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">@item.fac_name :</label>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <select class="form-control" name="@item.fac_id">
+                        <option>Please select</option>
+                        @for(var i = 1; i<=int.Parse(ViewBag.fac_id);i++){
+                        <option>@i</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        }
+        <button type="submit" class="btn btn-success">Success</button>
+    </form>*@
+    <form class="form-horizontal" method="post" action="/FacultySort/Sort">
+        
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">คณะวิศวกรรมศาสตร์ :</label>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <select class="form-control" name="1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">คณะครุศาสตร์อุตสาหกรรม :</label>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <select class="form-control" name="2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">วิทยาลัยเทคโนโลยีอุตสาหกรรม :</label>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <select class="form-control" name="3">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">คณะวิทยาศาสตร์ประยุกต์ :</label>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <select class="form-control" name="4">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Success</button>
+    </form>
+</div>
+<!-- ----------------------------------------------- -->
+

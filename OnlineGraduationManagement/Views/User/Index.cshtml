@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>*@
+
+    <style type="text/css">
+        /* USER PROFILE PAGE */
+        .card {
+            margin-top: 20px;
+            padding: 30px;
+            background-color: rgba(214, 224, 226, 0.2);
+            -webkit-border-top-left-radius: 5px;
+            -moz-border-top-left-radius: 5px;
+            border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-top-right-radius: 5px;
+            border-top-right-radius: 5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+            .card.hovercard {
+                position: relative;
+                padding-top: 0;
+                overflow: hidden;
+                text-align: center;
+                background-color: #fff;
+                background-color: rgba(255, 255, 255, 1);
+            }
+
+                .card.hovercard .card-background {
+                    height: 130px;
+                }
+
+        .card-background img {
+            /*-webkit-filter: blur(25px);
+            -moz-filter: blur(25px);
+            -o-filter: blur(25px);
+            -ms-filter: blur(25px);
+            filter: blur(25px);
+            margin-left: -100px;
+            margin-top: -135px;
+            min-width: 130%;*/
+            height: auto;
+            margin-left: -100px;
+            min-width: 130%;
+        }
+
+        .card.hovercard .useravatar {
+            position: absolute;
+            top: 15px;
+            left: 0px;
+            right: 0;
+        }
+
+            .card.hovercard .useravatar img {
+                width: 100px;
+                height: 100px;
+                max-width: 100px;
+                max-height: 100px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                border: 5px solid rgba(255, 255, 255, 0.5);
+            }
+
+        .card.hovercard .card-info {
+            position: absolute;
+            bottom: 14 px;
+            left: 0;
+            right: 0;
+        }
+
+            .card.hovercard .card-info .card-title {
+                padding: 0 5px;
+                font-size: 25px;
+                line-height: 1;
+                color: #000;
+                background-color: rgba(255, 255, 255, 0.3);
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+            }
+
+        .card.hovercard .card-info {
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 20px;
+            color: #737373;
+            text-overflow: ellipsis;
+        }
+
+        .card.hovercard .bottom {
+            padding: 0 20px;
+            margin-bottom: 17px;
+        }
+
+        .btn-pref .btn {
+            -webkit-border-radius: 0 !important;
+        }
+
+        table {
+            text-align: center;
+        }
+
+        p {
+            margin-top: 60px;
+            text-align: center;
+            color: blue;
+            font-size: 40px;
+        }
+
+        body {
+            background-color: #fff;
+        }
+    </style>
+    <style>
+        body {
+            background-image: url('/Content/images/test4.jpg');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: #93c3f7;
+            margin-top: 0px;
+            background-attachment: fixed;
+            color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>@Session["Std_fname"] @Session["Std_lname"]</p>
+
+    <div class="col-lg-6 col-sm-6 col-lg-offset-3 col-sm-offset-3">
+
+        <div class="card hovercard">
+
+            <div class="card-background">
+
+                <img class="card-bkimg" alt="" src="~/Content/images/User-BG.jpg">
+                <!-- http://lorempixel.com/850/280/people/9/ -->
+            </div>
+
+            @*<div class="useravatar">
+
+                    <img alt="" src="~/images/Bank Natthapon Sirinon.jpg">
+
+                </div>*@
+
+            @*<div class="card-info"> <span class="card-title">ณัฐพล ศิริโนน</span></div>*@
+
+        </div>
+
+
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+
+            <div class="btn-group" role="group">
+
+                <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab">
+
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+
+                    <div class="hidden-xs">วันที่ซ้อม</div>
+
+                </button>
+
+            </div>
+
+            <div class="btn-group" role="group">
+
+                <button type="button" id="favorites" class="btn btn-primary" href="#tab2" data-toggle="tab">
+
+                    <i class="fa fa-users" aria-hidden="true"></i>
+
+                    <div class="hidden-xs">ที่นั่งซ้อม</div>
+
+                </button>
+
+            </div>
+
+            <div class="btn-group" role="group">
+                <button type="button" id="following" class="btn btn-primary" href="#tab3" data-toggle="tab">
+                    <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                    <div class="hidden-xs">สถานะการเข้าซ้อม</div>
+                </button>
+            </div>
+        </div>
+
+        <table class="table">
+            <tr class="well">
+                <td style="width: 33%">5 พ.ย. 60</td>
+                <td style="width: 33%">@Session["seat_name"]</td>
+                @if (@Session["status2"].ToString() == "Check")
+                {
+                    <td style="width: 33%"><i class="fa fa-check" aria-hidden="true"></i></td>
+                }
+                else
+                {
+                    <td style="width: 33%"><i class="fa fa-times" aria-hidden="true"></i></td>
+                }
+
+            </tr>
+            <tr class="well">
+                <td style="width: 33%">6 พ.ย. 60</td>
+                <td style="width: 33%">@Session["seat_name2"]</td>
+                @if (@Session["status2"].ToString() == "Check")
+                {
+                    <td style="width: 33%"><i class="fa fa-check" aria-hidden="true"></i></td>
+                }
+                else
+                {
+                    <td style="width: 33%"><i class="fa fa-times" aria-hidden="true"></i></td>
+                }
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

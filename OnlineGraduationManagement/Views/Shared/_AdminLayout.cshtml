@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "ระบบบรับปริญญา";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ระบบบรับปริญญา</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- ------------------ Navbar ------------------- -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Home/Index">Online Graduation Management</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/AdminMa/Index">Home</a></li>
+                <!-- <li><a href="#">Page 1</a></li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/Login/Logoff"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin @Session["Name"]</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- ------------------- Sidebar ------------------- -->
+    <div style="margin-top:50px">
+        <div class="w3-sidebar w3-bar-block w3-light-grey w3-card-4 w3-animate-left" style="width:20%">
+            <div class="w3-bar w3-dark-grey">
+                <span class="w3-bar-item w3-padding-24">Content</span>
+            </div>
+            <div class="w3-bar-block ">
+                <a href="/AdminMa/Index" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-padding-16">Manage contacts</a>
+                <a href="/Seat/Index" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-padding-16">Seat management</a>
+                <a href="/FacultySort/Index" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-padding-16">Faculty management</a>
+                <a href="/QRCode/Index" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-padding-16">Barcode Printing</a>
+                <a href="/DataIO/Index" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-padding-16">Data In/Out</a>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------------------------------- -->
+    @RenderBody()
+</body>
+</html>
+

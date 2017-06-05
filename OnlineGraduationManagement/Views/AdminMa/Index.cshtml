@@ -1,0 +1,226 @@
+﻿@model IEnumerable<OnlineGraduationManagement.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<link rel="stylesheet" href="~/Content/font awesome/css/font-awesome.css" charset="utf-8">
+<link rel="stylesheet" href="~/Content/datatable/css/dataTables.bootstrap4.css" charset="utf-8">
+
+
+<script type="text/javascript" src="~/Content/datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="~/Content/datatable/js/dataTables.bootstrap.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.datatable').dataTable({
+            "bSort": false
+        });
+
+        $('.edit-student').click(function () {
+            var id = $(this).attr('data-id');
+            var fname = $(this).attr('data-fname');
+            var lname = $(this).attr('data-lname');
+            var pwd = $(this).attr('data-pwd')
+            $('#password').val(pwd);
+            $('#id').val(id);
+            $('#fname').val(fname);
+            $('#lname').val(lname);
+            $('#formEdit').modal('show')
+
+        });
+
+        $('.delete-student').click(function () {
+            var id = $(this).attr('data-id');
+            var fname = $(this).attr('data-fname');
+            var lname = $(this).attr('data-lname');
+            var hornor = $(this).attr('data-hornor')
+            var grade = $(this).attr('data-grade')
+            var dep = $(this).attr('data-dep')
+            var fac = $(this).attr('data-fac')
+
+            $('#id1').val(id);
+            $('#id2').html(id);
+            $('#fname2').html(fname);
+            $('#lname2').html(lname);
+            $('#hornor2').html(hornor);
+            $('#grade2').html(grade);
+            $('#dep2').html(dep);
+            $('#fac2').html(fac);
+            $('#formDelete').modal('show')
+
+        });
+    });
+</script>
+
+<!-- ------------------- Content ------------------- -->
+<div style="margin-left:20%">
+    <div class="w3-container w3-teal">
+        <h1>Online Graduation Management</h1>
+    </div>
+
+    <div class="w3-container">
+        <h2>จัดการรายชื่อ</h2>
+        <br>
+        <table class="table datatable">
+            <thead>
+                <tr class="w3-light-grey">
+                    <th>รหัสนักศึกษา</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
+                    <th>GPA</th>
+                    <th>อันดับเกียรตินิยม</th>
+                    <th>คณะ</th>
+                    <th>สาขา</th>
+
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Std_Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Std_fname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Std_lname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Std_grade)</td>
+                        <td>@Html.DisplayFor(modelItem => item.hornor_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.fac_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.dep_name)</td>
+
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" name="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cog"></i>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" class="edit-student"
+                                           data-id="@Html.DisplayFor(modelItem => item.Std_Id)"
+                                           data-fname="@Html.DisplayFor(modelItem => item.Std_fname)"
+                                           data-lname="@Html.DisplayFor(modelItem => item.Std_lname)"
+                                           data-pwd="@Html.DisplayFor(modelItem => item.Std_pwd)">
+                                            Edit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="delete-student"
+                                           data-id="@Html.DisplayFor(modelItem => item.Std_Id)"
+                                           data-fname="@Html.DisplayFor(modelItem => item.Std_fname)"
+                                           data-lname="@Html.DisplayFor(modelItem => item.Std_lname)"
+                                           data-grade="@Html.DisplayFor(modelItem => item.Std_grade)"
+                                           data-hornor="@Html.DisplayFor(modelItem => item.hornor_name)"
+                                           data-fac="@Html.DisplayFor(modelItem => item.fac_name)"
+                                           data-dep="@Html.DisplayFor(modelItem => item.dep_name)">Delete</a>
+                                    </li>
+                                </ul>
+                            </div><!-- /.dropdown -->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- ----------------------------------------------- -->
+<div class="modal fade" id="formEdit">
+    <div class="modal-dialog">
+        <form action="/AdminMa/EditStudent" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Edit</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Hidden Zone -->
+                    <input type="hidden" name="id" id="id" value="">
+                    <div class="form-group ">
+                        <label for="fname" class="control-label">First Name</label>
+                        <input type="text" id="fname" name="fname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname" class="control-label">Last Name</label>
+                        <input type="text" id="lname" name="lname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control">
+                    </div>
+
+
+                </div><!--/.modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                    </button>
+                    <input type="submit" class="btn btn-primary" value="Save">
+                </div><!--/.modal-footer-->
+            </div><!-- /.modal-content -->
+        </form>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--Delete-->
+<!-- Modal Zone -->
+<div class="modal fade" id="formDelete">
+    <div class="modal-dialog">
+        <form action="/Adminma/DeleteStudent" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Hidden Zone -->
+                    <input type="hidden" name="id1" id="id1" value="">
+                    <div class="form-group ">
+                        <label for="scode" class="control-label">รหัสนักศึกษา : </label>
+                        <label id="id2" name="id2" class="control-label"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="control-label">ชื่อ : </label>
+                        <label id="fname2" name="fname2" class="control-label"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lname" class="control-label">นามสกุล : </label>
+                        <label id="lname2" name="lname2" class="control-label"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="grade" class="control-label">GPA: </label>
+                        <label id="grade2" name="grade2" class="control-label"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hornor" class="control-label">อันดับเกียรตินิยม : </label>
+                        <label id="hornor2" name="hornor2" class="control-label"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fac" class="control-label">คณะ: </label>
+                        <label id="fac2" name="fac2" class="control-label"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="dep" class="control-label">สาขา : </label>
+                        <label id="dep2" name="dep2" class="control-label"></label>
+                    </div>
+
+
+                </div><!--/.modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                    </button>
+                    <input type="submit" class="btn btn-primary" value="Delete">
+                </div><!--/.modal-footer-->
+            </div><!-- /.modal-content -->
+        </form>
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

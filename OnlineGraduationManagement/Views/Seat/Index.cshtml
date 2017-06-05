@@ -1,0 +1,86 @@
+﻿@model IEnumerable<OnlineGraduationManagement.Models.Student>
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- ------------------- Content ------------------- -->
+<style type="text/css">
+    body {
+    }
+
+    table tr th {
+        text-align: center;
+        color: blue;
+    }
+
+    table tr td {
+        text-align: center;
+    }
+
+    h2 {
+        color: blue;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    #first {
+        color: forestgreen;
+    }
+
+    #second {
+        color: forestgreen;
+    }
+</style>
+
+<div style="margin-left:20%">
+
+    <div class="w3-container w3-teal">
+
+        <h1>Online Graduation Management</h1>
+
+    </div>
+
+    <div class="w3-container">
+
+        <h2>สร้างที่นั่ง วันซ้อมรับปริญญา วันที่ <strong id="first">5</strong> พฤศจิกายน 2560</h2>
+        @using (Html.BeginForm("GenSeat", "Seat", FormMethod.Post, new { @class = "form-horizontal panel-body", enctype = "multipart/form-data" }))
+        {
+            <table class="table table-bordered">
+                <tr>
+                    <th>จำนวนแถว</th>
+                    <th>จำนวนคอลัมน์</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="row" class="form-control"></td>
+                    <td><input type="text" name="col" class="form-control"></td>
+                    <td>
+                        <a href="@Url.Action("GenSeat", "Seat")"><button class="btn btn-success" id="create">สร้างที่นั่ง <span class="fa fa-check" aria-hidden="true"></span></button></a>
+                    </td>
+                </tr>
+            </table>
+        }
+
+        <h2>สร้างที่นั่ง วันซ้อมรับปริญญา วันที่ <strong id="second">6</strong> พฤศจิกายน 2560</h2>
+        @using (Html.BeginForm("GenSeatSecond", "Seat", FormMethod.Post, new { @class = "form-horizontal panel-body", enctype = "multipart/form-data" }))
+        {
+            <table class="table table-bordered">
+                <tr>
+                    <th>จำนวนแถว</th>
+                    <th>จำนวนคอลัมน์</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="row" class="form-control"></td>
+                    <td><input type="text" name="col" class="form-control"></td>
+                    <td>
+                        <a href="@Url.Action("GenSeatSecond", "Seat")"><button class="btn btn-success" id="create">สร้างที่นั่ง <span class="fa fa-check" aria-hidden="true"></span></button></a>
+                    </td>
+                </tr>
+            </table>
+        }
+
+    </div>
+</div>
+
+<!-- ----------------------------------------------- -->
